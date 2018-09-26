@@ -26,12 +26,14 @@ class TestUserAccount(unittest.TestCase):
 
     def test_password_should_be_valid(self):
         self.assertTrue(self.account.validate_password(self.password))
+        self.assertFalse(self.account.validate_password("23233232323232"))
 
     def test_username_should_be_valid(self):
         self.assertTrue(self.account.validate_username(self.username, self.name))
 
     def test_for_valid_age(self):
         self.assertTrue(self.account.validate_age(self.age))
+        self.assertFalse(self.account.validate_age(0))
 
     def test_user_can_register(self):
         self.assertEqual(len(self.account.accounts), 0)
@@ -41,3 +43,8 @@ class TestUserAccount(unittest.TestCase):
     def test_duplicate_users(self):
         self.account.register_user(**self.sample_account)
         self.assertFalse(self.account.register_user(**self.sample_account))
+
+    def test_user_can_login(self):
+        self.account.register_user(**self.sample_account)
+        self.assertTrue(self.account.login(self.username, self.password))
+        self.assertFalse(self.account.login("armstron", "phoder"))
