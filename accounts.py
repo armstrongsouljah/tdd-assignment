@@ -8,19 +8,25 @@ class Account:
     
     def __init__(self):
         self.accounts = []
+        self.gender = "male"
+
+    def change_gender(self,_gender):
+        self.gender = _gender
+        return self.gender
         
 
-    def register_user(self, name, username, age, email, password, gender):
+    def register_user(self, name, username, age, email, password):
         self.account = dict(
             name=name,
             username=username,
             age=age,
             email=email,
-            password=password,
-            gender=gender
+            gender = self.change_gender("female"),
+            password=password
         )
         if len(self.account['password']) < 4:
             raise ValueError("Password should be atleast 4 characters and above")
+            
         
         if self.account['gender'] != "female" and self.account['gender'] !="male":
             raise ValueError("Gender should be male / female!")

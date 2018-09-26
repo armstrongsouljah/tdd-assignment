@@ -11,8 +11,7 @@ class TestAccount(unittest.TestCase):
             username = "soultech",
             age = 24,
             email = "armstrongsouljah@gmail.com",
-            password = "Aa9s0!*",
-            gender = "male"
+            password = "Aa9s0!*"
         )
 
         self.sample_account2 = dict(
@@ -20,8 +19,7 @@ class TestAccount(unittest.TestCase):
             username = "soultech",
             age = 24,
             email = "armstrongsouljah@gmail.com",
-            password = "Aa9s0!*",
-            gender = "male"
+            password = "Aa9s0!*"
         )
 
         self.sample_account3 = dict(
@@ -29,8 +27,7 @@ class TestAccount(unittest.TestCase):
             username = "kyx",
             age = 24,
             email = "armstrongsouljah@gmail.com",
-            password = "Aa9s0!*",
-            gender = "male"
+            password = "Aa9s0!*"
         )
 
         self.sample_account4 = dict(
@@ -38,8 +35,7 @@ class TestAccount(unittest.TestCase):
             username = "kyxdededed",
             age = 0,
             email = "armstrongsouljah@gmail.com",
-            password = "Aa9s0!*",
-            gender = "male"
+            password = "Aa9s0!*"
         )
 
         self.sample_account5 = dict(
@@ -47,8 +43,7 @@ class TestAccount(unittest.TestCase):
             username = "kyx",
             age = 35,
             email = "armstrongsouljahgmail.com",
-            password = "Aa9s0!*",
-            gender = "male"
+            password = "Aa9s0!*"
         )
 
         self.sample_account6 = dict(
@@ -56,8 +51,7 @@ class TestAccount(unittest.TestCase):
             username = "kyxdeded",
             age = 34,
             email = " ",
-            password = "Aa9s0!*",
-            gender = "male"
+            password = "Aa9s0!*"
         )
 
         self.sample_account7 = dict(
@@ -65,8 +59,7 @@ class TestAccount(unittest.TestCase):
             username = "kyxdeded",
             age = 23,
             email = "23232323232322323",
-            password = "Aa9s0!*",
-            gender = "male"
+            password = "Aa9s0!*"
         )
 
     def test_user_can_register(self):
@@ -75,14 +68,14 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(len(self.accounts), 1)
 
     def test_username_not_similar_to_name(self):
-        with self.assertRaises(ValueError) as context:
+        with self.assertRaises(ValueError) as user_not_name:
             self.account.register_user(**self.sample_account2)
-            self.assertTrue("Username should be different from name" in context.exception)
+            self.assertTrue("Username should be different from name" in user_not_name.exception)
 
     def test_username_not_below_4_characters(self):
-        with self.assertRaises(ValueError) as context:
+        with self.assertRaises(ValueError) as user_below_4:
             self.account.register_user(**self.sample_account3)
-            self.assertTrue("Username should be atleast 4 characters and above" in context.exception)
+            self.assertTrue("Username should be atleast 4 characters and above" in user_below_4.exception)
 
     def test_age_should_be_number(self):
         with self.assertRaises(ValueError) as E:
@@ -90,9 +83,9 @@ class TestAccount(unittest.TestCase):
             self.assertTrue("Age must be above 0" in E.exception)
 
     def test_email_should_be_valid(self):
-        with self.assertRaises(ValueError) as context:
+        with self.assertRaises(ValueError) as valid_email:
             self.account.register_user(**self.sample_account5)
-            self.assertTrue("Please email address" in context.exception)
+            self.assertTrue("Please email address" in valid_email.exception)
     
     def test_email_should_not_be_empty(self):
         with self.assertRaises(ValueError) as context:
