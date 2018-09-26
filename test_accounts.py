@@ -11,7 +11,8 @@ class TestAccount(unittest.TestCase):
             username = "soultech",
             age = 24,
             email = "armstrongsouljah@gmail.com",
-            password = "Aa9s0!*"
+            password = "Aa9s0!*",
+            gender = "male"
         )
 
         self.sample_account2 = dict(
@@ -19,7 +20,8 @@ class TestAccount(unittest.TestCase):
             username = "soultech",
             age = 24,
             email = "armstrongsouljah@gmail.com",
-            password = "Aa9s0!*"
+            password = "Aa9s0!*",
+            gender = "male"
         )
 
         self.sample_account3 = dict(
@@ -27,7 +29,8 @@ class TestAccount(unittest.TestCase):
             username = "kyx",
             age = 24,
             email = "armstrongsouljah@gmail.com",
-            password = "Aa9s0!*"
+            password = "Aa9s0!*",
+            gender = "male"
         )
 
         self.sample_account4 = dict(
@@ -35,7 +38,8 @@ class TestAccount(unittest.TestCase):
             username = "kyxdededed",
             age = 0,
             email = "armstrongsouljah@gmail.com",
-            password = "Aa9s0!*"
+            password = "Aa9s0!*",
+            gender = "male"
         )
 
         self.sample_account5 = dict(
@@ -43,7 +47,8 @@ class TestAccount(unittest.TestCase):
             username = "kyx",
             age = 35,
             email = "armstrongsouljahgmail.com",
-            password = "Aa9s0!*"
+            password = "Aa9s0!*",
+            gender = "male"
         )
 
         self.sample_account6 = dict(
@@ -51,7 +56,8 @@ class TestAccount(unittest.TestCase):
             username = "kyxdeded",
             age = 34,
             email = " ",
-            password = "Aa9s0!*"
+            password = "Aa9s0!*",
+            gender = "male"
         )
 
         self.sample_account7 = dict(
@@ -59,7 +65,8 @@ class TestAccount(unittest.TestCase):
             username = "kyxdeded",
             age = 23,
             email = "23232323232322323",
-            password = "Aa9s0!*"
+            password = "Aa9s0!*",
+            gender = "male"
         )
 
     def test_user_can_register(self):
@@ -93,3 +100,5 @@ class TestAccount(unittest.TestCase):
             self.assertTrue("Email cant be empty" in context.exception)
 
         
+
+    

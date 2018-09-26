@@ -15,13 +15,13 @@ class Account:
         return self.gender
         
 
-    def register_user(self, name, username, age, email, password):
+    def register_user(self, name, username, age, email, password, gender):
         self.account = dict(
             name=name,
             username=username,
             age=age,
             email=email,
-            gender = self.change_gender("female"),
+            gender = gender,
             password=password
         )
         if len(self.account['password']) < 4:
