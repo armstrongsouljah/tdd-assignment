@@ -11,7 +11,6 @@ class TestUserAccount(unittest.TestCase):
         self.age = 28
 
         self.sample_account = dict(
-            name = self.name,
             username = self.username,            
             email = self.email,
             age = self.age,
@@ -37,14 +36,14 @@ class TestUserAccount(unittest.TestCase):
 
     def test_user_can_register(self):
         self.assertEqual(len(self.account.accounts), 0)
-        self.account.register_user(**self.sample_account)
+        self.account.register_user(self.name, **self.sample_account)
         self.assertEqual(len(self.account.accounts), 1)
 
     def test_duplicate_users(self):
-        self.account.register_user(**self.sample_account)
-        self.assertFalse(self.account.register_user(**self.sample_account))
+        self.account.register_user(self.name, **self.sample_account)
+        self.assertFalse(self.account.register_user(self.name, **self.sample_account))
 
     def test_user_can_login(self):
-        self.account.register_user(**self.sample_account)
+        self.account.register_user(self.name, **self.sample_account)
         self.assertTrue(self.account.login(self.username, self.password))
         self.assertFalse(self.account.login("armstron", "phoder"))

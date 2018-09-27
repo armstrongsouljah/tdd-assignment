@@ -45,8 +45,12 @@ class Account:
         else:
             return False
 
-    def register_user(self, name, username, email, age, password):
+    def register_user(self, name, **kwargs):
         """ creates a new account if one doesn't exist yet! """
+        username = kwargs["username"]
+        email = kwargs["email"]
+        age  = kwargs["age"]
+        password = kwargs["password"]
     
         account = dict(
             name = name,
