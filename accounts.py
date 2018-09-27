@@ -24,8 +24,9 @@ class Account:
         lcase = re.search(r"[a-z]", password)
         ucase = re.search(r"[A-Z]", password)
         number = re.search(r"[0-9]", password)
+        symbols = re.search('[@_!#$%^&*()<>?/\|}{~:]',password)
 
-        if  lcase and ucase and number and len(password) >= 4:
+        if  lcase and ucase and number and symbols and len(password) >= 4:
             return True
         else:
             return False
